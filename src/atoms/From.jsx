@@ -88,9 +88,10 @@ function Form() {
             return; // Detiene la ejecución si algún campo está vacío
         }
     // Función para validar que solo contiene letras y tiene al menos 3 caracteres
-function validarCampo(texto) {
-    return /^[a-zA-Z]{3,}$/.test(texto);
-}
+    function validarCampo(texto) {
+        return /^[a-zA-Z\s]{3,25}$/.test(texto);
+    }
+        
 
 if (!validarCampo(nombre)) {
     Swal.fire({
