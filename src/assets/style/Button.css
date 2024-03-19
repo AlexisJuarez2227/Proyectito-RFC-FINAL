@@ -1,10 +1,11 @@
 .btn {
     outline: 0;
-    display: inline-block; /* Cambiado de inline-flex a inline-block */
+    display: inline-block;
     align-items: center;
     justify-content: center;
-    background: #9e4caf;
-    min-width: 402px;
+    background: #5243c3;
+    min-width: 200px;
+    width: auto; /* Cambiado de min-width a width */
     border: 0;
     border-radius: 25px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
@@ -18,12 +19,11 @@
     overflow: hidden;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin: 8px auto; /* Centrado horizontal */
+    margin: 8px auto;
 }
 
-
 .btn:hover {
-    background-color: #d68ccf;
+    background-color: #938cd6;
     box-shadow: 0 6px 16px rgba(0, 0, 0, .3);
 }
 

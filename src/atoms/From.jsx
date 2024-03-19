@@ -84,9 +84,40 @@ function Form() {
                 title: 'Oops...',
                 text: 'Todos los campos son obligatorios.',
             });
+            
             return; // Detiene la ejecución si algún campo está vacío
         }
-    
+    // Función para validar que solo contiene letras y tiene al menos 3 caracteres
+function validarCampo(texto) {
+    return /^[a-zA-Z]{3,}$/.test(texto);
+}
+
+if (!validarCampo(nombre)) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El nombre debe contener solo letras y tener un mínimo de 3 caracteres.',
+    });
+    return;
+}
+
+if (!validarCampo(apellidoPaterno)) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El apellido paterno debe contener solo letras y tener un mínimo de 3 caracteres.',
+    });
+    return;
+}
+
+if (!validarCampo(apellidoMaterno)) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El apellido materno debe contener solo letras y tener un mínimo de 3 caracteres.',
+    });
+    return;
+}
         const diaInt = parseInt(dia, 10);
         const mesInt = parseInt(mes, 10);
         const anoInt = parseInt(ano, 10);
@@ -119,11 +150,11 @@ function Form() {
             });
             return;
         }
-        if (!ano || ano.toString().length !== 4) {
+        if (!ano || ano.toString().length !== 4|| ano < 2000 || ano > 2025) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'El año debe tener exactamente 4 dígitos.',
+                text: 'El año debe tener exactamente 4 dígitos y estar dentro del rango 2000-2025.',
             });
             return; // Detiene la ejecución si la validación falla
         }    
@@ -167,10 +198,6 @@ function Form() {
                     </center>
                     <table className="centered-table">
                         <thead>
-                            <tr>
-                                <th>CURP</th>
-                                <th>Nombre</th>
-                            </tr>
                         </thead>
                         <tbody>
                             {formData.map((data, index) => (
